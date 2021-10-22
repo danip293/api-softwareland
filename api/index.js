@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Task = require('./models/todoListModel'); //created model loading here
 const bodyParser = require('body-parser');
 const todoRouter = require('./routes/todoListRoutes'); //importing route
-const cors = require('cors');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 const port = process.env.PORT || 3000;
@@ -21,7 +20,6 @@ mongoose
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors())
 
 app.use(todoRouter); //register the route
 app.use(function (req, res) {
